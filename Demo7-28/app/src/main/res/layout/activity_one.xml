@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ryg.demo7_28.view.MyScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dip">-->
+
+        <!--<android.support.v4.view.ViewPager-->
+            <!--android:id="@+id/vp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="35dip"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/title"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="picture_title" />-->
+
+        <!--</LinearLayout>-->
+
+    <!--</FrameLayout>-->
+
+        <fragment
+            android:name="com.ryg.demo7_28.fragment.firstfragment_fragment.lb.Lb_fragment"
+            android:id="@+id/last_lb"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"></FrameLayout>
+
+
+    <fragment
+        android:name="com.ryg.demo7_28.fragment.firstfragment_fragment.Horizontiallistview_fragment"
+        android:id="@+id/fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"/>
+
+        <fragment
+            android:id="@+id/fragment1"
+            android:name="com.ryg.demo7_28.fragment.firstfragment_fragment.Listview_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</com.ryg.demo7_28.view.MyScrollView>
