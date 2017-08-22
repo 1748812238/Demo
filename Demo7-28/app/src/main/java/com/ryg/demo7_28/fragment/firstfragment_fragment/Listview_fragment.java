@@ -25,12 +25,14 @@ import java.util.Objects;
 
 /**
  * Created by apple on 17/7/31.
+ * ListView的View层
  */
 
 public class Listview_fragment extends ListFragment implements Listviewinterface{
 
 //    String[] strings = {"TextView","TextView","TextView","TextView","TextView",};
 //    int[] imgs = {R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,};
+<<<<<<< HEAD
 
     private SimpleAdapter adapter;
 
@@ -39,7 +41,24 @@ public class Listview_fragment extends ListFragment implements Listviewinterface
     private ListViewForScrollView listViewForScrollView;
 
     private Listview_presenterImpl listview_presenter;
+=======
+>>>>>>> dev
 
+    private SimpleAdapter adapter; //适配器对象
+
+    private View view; //
+
+    private ListViewForScrollView listViewForScrollView; //
+
+    private Listview_presenterImpl listview_presenter; //
+
+    /**
+     * 返回list布局
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.list,container,false);
@@ -49,6 +68,10 @@ public class Listview_fragment extends ListFragment implements Listviewinterface
         return view;
     }
 
+    /**
+     * 创建listview层的对象，调用setimagetext()方法获取数据
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
 //        String[] from = new String[]{"img","title"};
@@ -62,6 +85,15 @@ public class Listview_fragment extends ListFragment implements Listviewinterface
         this.setListAdapter(adapter);
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * 通过传递过来的数据，将数据通过for循环封装到list中
+     * @param strings
+     * @param imgs
+     * @return
+     */
+>>>>>>> dev
     private List<Map<String, Object>> getSimpleData(String[] strings,int[] imgs){
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
@@ -77,11 +109,26 @@ public class Listview_fragment extends ListFragment implements Listviewinterface
         return list;
     }
 
+    /**
+     * 对每一条的listview添加监听事件
+     * @param l
+     * @param v
+     * @param position
+     * @param id
+     */
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Toast.makeText(getActivity(),"You have selected" + position,Toast.LENGTH_SHORT).show();
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * 将数据分配到适配器中进行listview的创建
+     * @param strings
+     * @param images
+     */
+>>>>>>> dev
     @Override
     public void settextimage(String[] strings, int[] images) {
         String[] from = new String[]{"img","title"};
