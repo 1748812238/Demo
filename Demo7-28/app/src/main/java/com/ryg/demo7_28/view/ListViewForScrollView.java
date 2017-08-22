@@ -3,6 +3,7 @@ package com.ryg.demo7_28.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 /**
  * Created by apple on 17/8/1.
