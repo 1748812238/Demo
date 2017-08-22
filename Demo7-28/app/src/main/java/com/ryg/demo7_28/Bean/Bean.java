@@ -2,6 +2,7 @@ package com.ryg.demo7_28.Bean;
 
 /**
  * Created by apple on 17/8/3.
+ *
  */
 
 public class Bean {
