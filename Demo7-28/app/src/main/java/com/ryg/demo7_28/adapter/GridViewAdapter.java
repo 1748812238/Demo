@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by apple on 17/8/3.
+ *
  */
 
 public class GridViewAdapter extends BaseAdapter {

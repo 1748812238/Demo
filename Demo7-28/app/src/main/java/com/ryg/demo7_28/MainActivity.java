@@ -43,6 +43,9 @@ public class MainActivity extends FragmentActivity{
         initView();
     }
 
+    /**
+     * 组件的获取，对于组件事件的监听
+     */
     private void initView() {
         first = (RelativeLayout) findViewById(R.id.first_layout);
         second = (RelativeLayout) findViewById(R.id.second_layout);
@@ -85,6 +88,10 @@ public class MainActivity extends FragmentActivity{
     }
 
 
+    /**
+     * 通过传递过来的数值，将对应的布局添加到transacion上
+     * @param index
+     */
     private void setChioceItem(int index){
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         hideFragments(transaction);
@@ -117,6 +124,10 @@ public class MainActivity extends FragmentActivity{
         transaction.commit();
     }
 
+    /**
+     * 隐藏对应的视图
+     * @param transaction
+     */
     private void hideFragments(FragmentTransaction transaction) {
         if(fg1 != null){
             transaction.hide(fg1);

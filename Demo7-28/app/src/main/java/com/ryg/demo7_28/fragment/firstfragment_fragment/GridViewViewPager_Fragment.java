@@ -15,6 +15,8 @@ import com.ryg.demo7_28.Bean.Bean;
 import com.ryg.demo7_28.R;
 import com.ryg.demo7_28.adapter.GridViewAdapter;
 import com.ryg.demo7_28.adapter.ViewPagerAdapter;
+import com.ryg.demo7_28.fragment.firstfragment_fragment.GridViewPager_mvp.GridViewPager;
+import com.ryg.demo7_28.fragment.firstfragment_fragment.GridViewPager_mvp.GridViewPager_PresenterImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,23 +25,35 @@ import java.util.List;
  * Created by apple on 17/8/3.
  */
 
-public class GridViewViewPager_Fragment extends Fragment{
+public class GridViewViewPager_Fragment extends Fragment implements GridViewPager{
 
-    private String[] titles = new String[]{"Text1","Text2","Text3","Text4","Text5","Text6","Text7","Text8","Text9","Text10"};
-    private ViewPager viewPager;
-    private List<View> PagerList;
-    private List<Bean> mDatas;
-    private LayoutInflater inflaters;
-    private int PagerCount;
-    private int PagerSize = 8;
-    private View view;
+//    private String[] titles = new String[]{"Text1","Text2","Text3","Text4","Text5","Text6","Text7","Text8","Text9","Text10"};
+    private ViewPager viewPager; //用于获取布局中的viewpager组件
+    private List<View> PagerList; //用于存储item的view视图
+    private List<Bean> mDatas; //用于存储item中的数据
+    private LayoutInflater inflaters; //用于获取其他布局的ID
+    private int PagerCount; //页数
+    private int PagerSize = 8; //一页所显示的item个数
+    private View view; //视图
 
+    private GridViewPager_PresenterImpl gridViewPager_presenter;
+
+    /**
+     * 通过自定义的GridViewAdapter的实现分页操作，对每个item进行监听
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_gridview,container,false);
         viewPager = (ViewPager) view.findViewById(R.id.gridview_vp);
-        initDatas();
+
+        gridViewPager_presenter = new GridViewPager_PresenterImpl(this);
+        gridViewPager_presenter.ontextimgs();
+
         inflaters = inflater.from(view.getContext());
         PagerCount = (int) Math.ceil(mDatas.size() * 1.0 / PagerSize);
         PagerList = new ArrayList<View>();
@@ -60,10 +74,16 @@ public class GridViewViewPager_Fragment extends Fragment{
         return view;
     }
 
-    private void initDatas() {
+    /**
+     * 将从Presenter层传递过来的数据用for循环添加到mDatas列表中
+     * @param strings
+     * @param imgs
+     */
+    @Override
+    public void initDatas(String[] strings, int[] imgs) {
         mDatas = new ArrayList<Bean>();
-        for(int i = 0;i < titles.length;i++){
-            mDatas.add(new Bean(titles[i],R.mipmap.ic_launcher));
+        for(int i = 0;i < strings.length;i++){
+            mDatas.add(new Bean(strings[i],imgs[i]));
         }
     }
 }
