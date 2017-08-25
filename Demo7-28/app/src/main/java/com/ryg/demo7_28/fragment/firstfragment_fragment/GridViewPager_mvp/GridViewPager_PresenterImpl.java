@@ -1,5 +1,7 @@
 package com.ryg.demo7_28.fragment.firstfragment_fragment.GridViewPager_mvp;
 
+import android.content.Context;
+
 /**
  * Created by apple on 17/8/22.
  * GridViewPager的Presenter层
@@ -33,7 +35,7 @@ public class GridViewPager_PresenterImpl implements GridViewPager_Presenter {
      * 调用Model层的方法获取参数
      */
     @Override
-    public void ontextimgs() {
-        gridViewPager_model.ontextimage(this);
+    public void ontextimgs(Context context) {
+        gridViewPager_model.ontextimage(this,context);
     }
 }

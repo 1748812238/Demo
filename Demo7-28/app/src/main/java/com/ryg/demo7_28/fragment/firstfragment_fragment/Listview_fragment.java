@@ -69,7 +69,7 @@ public class Listview_fragment extends ListFragment implements Listviewinterface
         super.onCreate(savedInstanceState);
 //        adapter = new SimpleAdapter(this.getActivity(),getSimpleData(),R.layout.item,from,to);
         listview_presenter = new Listview_presenterImpl(this);
-        listview_presenter.setimagetext();
+        listview_presenter.setimagetext(getActivity());
 
         this.setListAdapter(adapter);
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +25,9 @@ public class Horizontiallistview_fragment extends Fragment implements Horizontia
 
     private View view; //视图
     private HorizontialListView listView; //自定义的水平listview
-    private String[] strings; //
+    private String[] strings; //用来接收从Presenter层传递过来的数据
     private Horizontiallistview_PresenterImpl horizontiallistview_presenter; //用于Presenter层的对象的创建
+    private int[] imgs;
 
     /**
      * 实现对应布局ID的获取，添加了ItemClickListener监听，并创建了Presenter层的对象调用了其中的ontext()方法获取数据进行布局
@@ -39,7 +41,7 @@ public class Horizontiallistview_fragment extends Fragment implements Horizontia
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.list_horizontial,container,false);
         horizontiallistview_presenter = new Horizontiallistview_PresenterImpl(this);
-        horizontiallistview_presenter.ontext();
+        horizontiallistview_presenter.ontext(getActivity());
         listView = (HorizontialListView) view.findViewById(R.id.horizontial_listview);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -85,6 +87,8 @@ public class Horizontiallistview_fragment extends Fragment implements Horizontia
         public View getView(final int position, View convertView, ViewGroup parent) {
             View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_horizontiallistview,null);
             TextView title = (TextView) item.findViewById(R.id.img_title);
+//            ImageView imageView = (ImageView) item.findViewById(R.id.hz_image);
+//            imageView.setImageResource(imgs[position]);
             title.setText(strings[position]);
             return item;
         }
@@ -97,5 +101,9 @@ public class Horizontiallistview_fragment extends Fragment implements Horizontia
     @Override
     public void getString(String[] strings) {
         this.strings = strings;
+    }
+
+    public void getimages(int[] imgs){
+        this.imgs = imgs;
     }
 }

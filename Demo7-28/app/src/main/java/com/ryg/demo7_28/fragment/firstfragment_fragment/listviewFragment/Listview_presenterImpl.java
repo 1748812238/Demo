@@ -1,5 +1,7 @@
 package com.ryg.demo7_28.fragment.firstfragment_fragment.listviewFragment;
 
+import android.content.Context;
+
 import com.ryg.demo7_28.fragment.firstfragment_fragment.Listview_fragment;
 
 /**
@@ -35,7 +37,7 @@ public class Listview_presenterImpl implements Listview_presenter{
      * 调用Model层的setimagetext()方法
      */
     @Override
-    public void setimagetext() {
-        listview_model.setimagetext(this);
+    public void setimagetext(Context context) {
+        listview_model.setimagetext(this,context);
     }
 }
