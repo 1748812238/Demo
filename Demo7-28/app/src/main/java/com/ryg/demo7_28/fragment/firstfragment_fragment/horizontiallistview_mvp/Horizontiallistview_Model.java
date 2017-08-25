@@ -1,5 +1,7 @@
 package com.ryg.demo7_28.fragment.firstfragment_fragment.horizontiallistview_mvp;
 
+import android.content.Context;
+
 /**
  * Created by apple on 17/8/22.
  * Model层的接口
@@ -7,5 +9,5 @@ package com.ryg.demo7_28.fragment.firstfragment_fragment.horizontiallistview_mvp
 
 public interface Horizontiallistview_Model {
 
-    void ontext(Horizontiallistview_Presenter horizontiallistview_presenter);
+    void ontext(Horizontiallistview_Presenter horizontiallistview_presenter,Context context);
 }

@@ -1,6 +1,7 @@
 package com.ryg.demo7_28;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ryg.demo7_28.Dao.Initialization_data;
 import com.ryg.demo7_28.fragment.FirstFragment;
 import com.ryg.demo7_28.fragment.SecondFragment;
 import com.ryg.demo7_28.fragment.ThirdFragment;
@@ -34,13 +36,27 @@ public class MainActivity extends FragmentActivity{
 
     private FragmentManager fragmentManager;
 
+    private Initialization_data initialization_data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        data();
         fragmentManager = getSupportFragmentManager();
         setChioceItem(0);
         initView();
+    }
+
+    public void data(){
+        SharedPreferences sharedPreferences = getSharedPreferences("is",MODE_PRIVATE);
+        boolean isfer = sharedPreferences.getBoolean("isfer",true);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if(isfer){
+            initialization_data = new Initialization_data(this);
+            editor.putBoolean("isfer",false);
+            editor.commit();
+        }
     }
 
     /**

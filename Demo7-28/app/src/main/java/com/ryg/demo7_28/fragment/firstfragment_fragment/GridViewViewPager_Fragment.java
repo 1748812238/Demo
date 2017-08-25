@@ -27,7 +27,6 @@ import java.util.List;
 
 public class GridViewViewPager_Fragment extends Fragment implements GridViewPager{
 
-//    private String[] titles = new String[]{"Text1","Text2","Text3","Text4","Text5","Text6","Text7","Text8","Text9","Text10"};
     private ViewPager viewPager; //用于获取布局中的viewpager组件
     private List<View> PagerList; //用于存储item的view视图
     private List<Bean> mDatas; //用于存储item中的数据
@@ -52,7 +51,7 @@ public class GridViewViewPager_Fragment extends Fragment implements GridViewPage
         viewPager = (ViewPager) view.findViewById(R.id.gridview_vp);
 
         gridViewPager_presenter = new GridViewPager_PresenterImpl(this);
-        gridViewPager_presenter.ontextimgs();
+        gridViewPager_presenter.ontextimgs(getActivity());
 
         inflaters = inflater.from(view.getContext());
         PagerCount = (int) Math.ceil(mDatas.size() * 1.0 / PagerSize);

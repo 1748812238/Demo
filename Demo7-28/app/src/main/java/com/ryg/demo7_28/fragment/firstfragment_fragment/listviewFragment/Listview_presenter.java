@@ -1,5 +1,7 @@
 package com.ryg.demo7_28.fragment.firstfragment_fragment.listviewFragment;
 
+import android.content.Context;
+
 /**
  * Created by apple on 17/8/22.
 <<<<<<< HEAD
@@ -15,6 +17,6 @@ public interface Listview_presenter {
 
     void onimagetext(String[] strings,int[] imgs);
 
-    void setimagetext();
+    void setimagetext(Context context);
 
 }

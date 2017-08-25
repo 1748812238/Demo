@@ -1,5 +1,7 @@
 package com.ryg.demo7_28.fragment.firstfragment_fragment.horizontiallistview_mvp;
 
+import android.content.Context;
+
 /**
  * Created by apple on 17/8/22.
  * Horizontiallistview的Presenter层
@@ -24,15 +26,16 @@ public class Horizontiallistview_PresenterImpl implements Horizontiallistview_Pr
      * @param strings
      */
     @Override
-    public void settext(String[] strings) {
+    public void settext(String[] strings,int[] imgs) {
         horizontiallistview.getString(strings);
+        horizontiallistview.getimages(imgs);
     }
 
     /**
      * 调用Model层的ontext()方法获取数据
      */
     @Override
-    public void ontext() {
-        horizontiallistview_model.ontext(this);
+    public void ontext(Context context) {
+        horizontiallistview_model.ontext(this,context);
     }
 }
